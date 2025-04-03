@@ -200,26 +200,74 @@
 
 //OR
 
-console.log("one");
-console.log("two");
+// console.log("one");
+// console.log("two");
 
-setTimeout(() => {
-    console.log("hello");
-},2000);
+// setTimeout(() => {
+//     console.log("hello");
+// },2000);
 
-console.log("three");
-console.log("four");
+// console.log("three");
+// console.log("four");
 
-function sum(a,b){
-    console.log(a + b);
-}
+// function sum(a,b){
+//     console.log(a + b);
+// }
 
-function calculator(a , b, sumCallback){
-    sumCallback(a,b);
-}
+// function calculator(a , b, sumCallback){
+//     sumCallback(a,b);
+// }
 
-calculator(11 ,2 , sum);
-//OR
-calculator(1, 2, (a, b) => {
-    console.log(a + b);
-})
+// calculator(11 ,2 , sum);
+// //OR
+// calculator(1, 2, (a, b) => {
+//     console.log(a + b);
+// })
+
+//  function getData(dataId) {
+//     console.log("data", dataId);
+//  }
+
+ //OR
+
+//  function getData(dataId, getNextData) {
+//    setTimeout (() => {
+//     console.log("data", dataId);
+//     if (getNextData){
+//       getNextData();
+//     }
+//    }, 2000);
+//  }
+ 
+//  getData(1, () =>{
+//   console.log("getting data2 ....");
+//   getData(2 , () => {
+//     console.log("getting data3 ....");
+//     getData(3);
+//   });
+//  })
+
+
+// let promise = new Promise((resolve, reject ) => {
+//   console.log("I am a promise");
+  // resolve(12);
+  // resolve("success");
+//   reject("some error occurred");
+// });
+
+const getPromise = () => {
+  return new Promise((resolve, reject ) => {
+  console.log("I am a promise");
+  //  resolve("success");
+  reject("some error occurred");
+});
+};
+
+let promise = getPromise();
+promise.then( (res) => {
+  console.log("promise fulfilled",res);
+});
+
+promise.catch( (err) => {
+  console.log("Rejected",err);
+});
